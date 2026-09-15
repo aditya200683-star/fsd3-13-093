@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Desi Matka - Traditional Indian Water Pot</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #fff8ef;
+            color: #3e2723;
+        }
+
+        /* Navbar */
+        nav {
+            background: #8d3f24;
+            color: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav h1 {
+            font-size: 28px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        nav ul li a:hover {
+            color: #ffd7a8;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 600px;
+            padding: 60px 10%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(
+                120deg,
+                #fff1df,
+                #f3c49b
+            );
+        }
+
+        .hero-text {
+            width: 50%;
+        }
+
+        .hero-text h2 {
+            font-size: 55px;
+            color: #7b351f;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: 20px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #a84d2a;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 18px;
+        }
+
+        .btn:hover {
+            background: #6f2c1b;
+        }
+
+        /* Matka Design */
+        .matka-container {
+            width: 40%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .matka {
+            width: 220px;
+            height: 300px;
+            background: linear-gradient(
+                90deg,
+                #9e4f2d,
+                #d98b55,
+                #9e4f2d
+            );
+
+            border-radius: 45% 45% 35% 35%;
+            position: relative;
+
+            box-shadow: 15px 20px 30px rgba(0,0,0,0.25);
+        }
+
+        /* Matka neck */
+        .matka::before {
+            content: "";
+            position: absolute;
+
+            width: 100px;
+            height: 55px;
+
+            background: #9e4f2d;
+
+            top: -35px;
+            left: 60px;
+
+            border-radius: 25px 25px 8px 8px;
+        }
+
+        /* Matka opening */
+        .matka::after {
+            content: "";
+
+            position: absolute;
+
+            width: 110px;
+            height: 20px;
+
+            background: #6f2c1b;
+
+            top: -42px;
+            left: 55px;
+
+            border-radius: 50%;
+        }
+
+        /* Features */
+        .features {
+            padding: 70px 10%;
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 38px;
+            color: #7b351f;
+            margin-bottom: 40px;
+        }
+
+        .feature-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            width: 25%;
+            padding: 30px 20px;
+            border-radius: 15px;
+
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: #a84d2a;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            line-height: 1.5;
+            color: #555;
+        }
+
+        /* Product */
+        .product {
+            background: #a84d2a;
+            color: white;
+            text-align: center;
+            padding: 70px 10%;
+        }
+
+        .product h2 {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .product p {
+            font-size: 18px;
+        }
+
+        .price {
+            font-size: 38px;
+            font-weight: bold;
+            margin: 25px;
+        }
+
+        .product .btn {
+            background: white;
+            color: #8d3f24;
+        }
+
+        .product .btn:hover {
+            background: #ffe1c2;
+        }
+
+        /* About */
+        .about {
+            padding: 60px 10%;
+            text-align: center;
+        }
+
+        .about h2 {
+            color: #7b351f;
+            font-size: 35px;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        /* Contact */
+        .contact {
+            padding: 50px;
+            text-align: center;
+            background: #fff1df;
+        }
+
+        .contact h2 {
+            color: #7b351f;
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            margin: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background: #5d2819;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text {
+                width: 100%;
+            }
+
+            .hero-text h2 {
+                font-size: 40px;
+            }
+
+            .matka-container {
+                width: 100%;
+                margin-top: 80px;
+            }
+
+            .feature-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <nav>
+
+        <h1>🏺 Desi Matka</h1>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#product">Matka</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+    </nav>
+
+
+    <!-- Hero Section -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-text">
+
+            <h2>Pure Water.<br>Desi Style.</h2>
+
+            <p>
+                Experience the traditional Indian way of
+                keeping drinking water naturally cool with
+                our handmade मिट्टी का घड़ा.
+            </p>
+
+            <a href="#product" class="btn">
+                Buy Matka
+            </a>
+
+        </div>
+
+
+        <div class="matka-container">
+
+            <div class="matka"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Features -->
+
+    <section class="features" id="features">
+
+        <h2>Why Choose Our Matka?</h2>
+
+        <div class="feature-container">
+
+            <div class="card">
+
+                <div class="icon">💧</div>
+
+                <h3>Naturally Cool</h3>
+
+                <p>
+                    The porous clay helps water stay naturally
+                    cool without electricity.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">🏺</div>
+
+                <h3>100% Clay</h3>
+
+                <p>
+                    Made from natural मिट्टी with traditional
+                    Indian pottery techniques.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">🌱</div>
+
+                <h3>Eco Friendly</h3>
+
+                <p>
+                    A natural alternative to plastic bottles
+                    and electric water coolers.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">🇮🇳</div>
+
+                <h3>Made in India</h3>
+
+                <p>
+                    Handmade by Indian potters and inspired
+                    by our traditional culture.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Product -->
+
+    <section class="product" id="product">
+
+        <h2>Traditional Mitti Ka Matka</h2>
+
+        <p>
+            Handmade • Natural Clay • Traditional Design
+        </p>
+
+        <div class="price">
+            ₹799
+        </div>
+
+        <a href="#" class="btn">
+            Buy Now
+        </a>
+
+    </section>
+
+
+    <!-- About -->
+
+    <section class="about">
+
+        <h2>Our Story</h2>
+
+        <p>
+            Our Matkas are inspired by the traditional Indian
+            way of storing drinking water. Each pot is carefully
+            crafted using natural clay by skilled local artisans.
+            Bring the traditional taste and simplicity of India
+            into your home.
+        </p>
+
+    </section>
+
+
+    <!-- Contact -->
+
+    <section class="contact" id="contact">
+
+        <h2>Contact Us</h2>
+
+        <p>📧 Email: desimatka@gmail.com</p>
+
+        <p>📞 Phone: +91 98765 43210</p>
+
+    </section>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            © 2026 Desi Matka | Handmade with ❤️ in India
+        </p>
+
+    </footer>
+
+</body>
+</html>
