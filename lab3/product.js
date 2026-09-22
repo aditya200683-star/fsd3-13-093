@@ -15,3 +15,12 @@ export const addProduct =( item )=>{
     return item ;
          
 };
+export const deleteProduct = (id) => {
+    const index = products.findIndex(item => item.id == id);
+
+    if (index === -1) {
+        return null;
+    }
+
+    return products.splice(index, 1)[0];
+};
