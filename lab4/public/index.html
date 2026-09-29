@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Phone Pro | Redefine Mobile Innovation</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts - Inter & Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        aura: {
+                            base: '#080810',
+                            card: '#121220',
+                            accent: '#6366f1',
+                            cyan: '#06b6d4',
+                            emerald: '#10b981',
+                            gold: '#f59e0b',
+                            titanium: '#94a3b8'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-12px)' },
+                        },
+                        glow: {
+                            '0%': { opacity: '0.5', filter: 'drop-shadow(0 0 15px rgba(99, 102, 241, 0.4))' },
+                            '100%': { opacity: '1', filter: 'drop-shadow(0 0 35px rgba(6, 182, 212, 0.8))' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS styles -->
+    <style>
+        body {
+            background-color: #080810;
+            color: #f3f4f6;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .glass-panel {
+            background: rgba(18, 18, 32, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(99, 102, 241, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px -10px rgba(99, 102, 241, 0.2);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #ffffff 0%, #a5b4fc 50%, #38bdf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-gradient-cyan {
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* 3D Phone Perspective Styles */
+        .phone-container {
+            perspective: 1200px;
+        }
+
+        .phone-3d {
+            transform-style: preserve-3d;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .phone-3d:hover {
+            transform: rotateY(-10deg) rotateX(8deg) scale(1.02);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #080810;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #27273a;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4f46e5;
+        }
+    </style>
+</head>
+<body class="selection:bg-indigo-500 selection:text-white">
+
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3 cursor-pointer" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-cyan-500 to-emerald-400 p-[2px] shadow-lg shadow-indigo-500/20">
+                        <div class="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center">
+                            <i class="fa-solid font-bold text-xl text-cyan-400 fa-a"></i>
+                        </div>
+                    </div>
+                    <span class="font-display font-bold text-xl tracking-wider text-white">AURA <span class="text-indigo-400 font-light">PRO</span></span>
+                </div>
+
+                <!-- Desktop Nav Links -->
+                <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
+                    <a href="#overview" class="hover:text-cyan-400 transition-colors">Overview</a>
+                    <a href="#colors" class="hover:text-cyan-400 transition-colors">Design & Finishes</a>
+                    <a href="#specs" class="hover:text-cyan-400 transition-colors">Performance</a>
+                    <a href="#camera" class="hover:text-cyan-400 transition-colors">Camera System</a>
+                    <a href="#configure" class="hover:text-cyan-400 transition-colors">Pricing</a>
+                </div>
+
+                <!-- CTA & Actions -->
+                <div class="flex items-center space-x-4">
+                    <button onclick="openVideoModal()" class="hidden sm:flex items-center space-x-2 text-xs font-semibold uppercase tracking-wider text-gray-300 hover:text-white px-3 py-2 rounded-lg hover:bg-white/5 transition-all">
+                        <i class="fa-solid fa-circle-play text-cyan-400 text-base"></i>
+                        <span>Watch Launch</span>
+                    </button>
+                    <button onclick="scrollToConfigure()" class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-xs font-semibold rounded-full group bg-gradient-to-br from-indigo-500 via-cyan-500 to-emerald-400 group-hover:from-indigo-500 group-hover:to-cyan-400 hover:text-white text-white shadow-lg shadow-indigo-500/25">
+                        <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-slate-950 rounded-full group-hover:bg-opacity-0">
+                            Pre-Order Now
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="overview" class="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
+        <!-- Background Ambient Glows -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-600/20 rounded-full blur-[140px] pointer-events-none"></div>
+        <div class="absolute top-1/3 right-10 w-[400px] h-[400px] bg-cyan-500/15 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Left: Text Content -->
+                <div class="lg:col-span-6 space-y-8 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-xs font-semibold tracking-wide">
+                        <span class="w-2 h-2 rounded-full bg-indigo-400 animate-ping"></span>
+                        <span>NEXT-GEN FLAGSHIP RELEASE 2026</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-display font-extrabold tracking-tight leading-none">
+                        Beyond <br>
+                        <span class="text-gradient">Intelligence.</span>
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-gray-400 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                        Engineered with Grade 5 Titanium alloy, powered by the ultra-efficient Neural Snapdragon 8 Gen 3, and equipped with a groundbreaking 200MP Quad-Lens Photonic Engine.
+                    </p>
+
+                    <!-- Hero Action Buttons -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <button onclick="scrollToConfigure()" class="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-indigo-500 via-cyan-500 to-emerald-400 font-semibold text-slate-950 hover:shadow-xl hover:shadow-cyan-500/25 transition-all duration-300 transform hover:-translate-y-0.5">
+                            Pre-Order from $999 <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                        </button>
+                        <button onclick="openVideoModal()" class="w-full sm:w-auto px-8 py-4 rounded-full glass-card hover:bg-white/10 font-medium text-gray-200 transition-all flex items-center justify-center gap-2 border border-white/10">
+                            <i class="fa-solid fa-play text-cyan-400 text-xs"></i> Experience Dynamic Keynote
+                        </button>
+                    </div>
+
+                    <!-- Quick Spec Micro-Badges -->
+                    <div class="pt-6 border-t border-white/10 grid grid-cols-3 gap-4 text-center lg:text-left">
+                        <div>
+                            <p class="text-xs text-gray-400 uppercase tracking-wider">Processor</p>
+                            <p class="text-base sm:text-lg font-bold text-white font-display">4nm Snapdragon</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-400 uppercase tracking-wider">Main Camera</p>
+                            <p class="text-base sm:text-lg font-bold text-white font-display">200MP Optical</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-400 uppercase tracking-wider">Display</p>
+                            <p class="text-base sm:text-lg font-bold text-white font-display">120Hz LTPO 4K</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Right: Interactive 3D Phone Preview -->
+                <div class="lg:col-span-6 flex justify-center relative phone-container">
+                    
+                    <!-- Floating Spec Badge Top Left -->
+                    <div class="absolute -top-4 left-4 sm:left-8 z-20 glass-panel px-4 py-3 rounded-2xl animate-float shadow-xl border border-white/10 hidden sm:block">
+                        <div class="flex items-center space-x-3">
+                            <div class="p-2 rounded-xl bg-cyan-500/20 text-cyan-400">
+                                <i class="fa-solid fa-microchip text-lg"></i>
+                            </div>
+                            <div>
+                                <p class="text-[10px] text-gray-400 uppercase">Architecture</p>
+                                <p class="text-xs font-bold text-white">Neural Engine v3.5</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Floating Spec Badge Bottom Right -->
+                    <div class="absolute -bottom-4 right-4 sm:right-8 z-20 glass-panel px-4 py-3 rounded-2xl animate-float shadow-xl border border-white/10 hidden sm:block" style="animation-delay: 2s;">
+                        <div class="flex items-center space-x-3">
+                            <div class="p-2 rounded-xl bg-emerald-500/20 text-emerald-400">
+                                <i class="fa-solid fa-bolt text-lg"></i>
+                            </div>
+                            <div>
+                                <p class="text-[10px] text-gray-400 uppercase">HyperCharge</p>
+                                <p class="text-xs font-bold text-white">120W / 0-100% in 18m</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CSS 3D Smartphone Rendering -->
+                    <div id="heroPhoneMockup" class="phone-3d relative w-[280px] sm:w-[320px] h-[580px] sm:h-[640px] rounded-[50px] bg-slate-900 border-[8px] border-slate-700 shadow-2xl overflow-hidden shadow-indigo-500/20 transition-all duration-700">
+                        <!-- Dynamic Finish Outer Border Glow -->
+                        <div id="phoneGlow" class="absolute inset-0 rounded-[42px] border-2 border-indigo-500/50 shadow-[0_0_50px_rgba(99,102,241,0.3)] pointer-events-none z-30"></div>
+
+                        <!-- Phone Screen Display Area -->
+                        <div class="relative w-full h-full bg-slate-950 flex flex-col justify-between p-4 overflow-hidden">
+                            
+                            <!-- Dynamic Island / Holepunch Notch -->
+                            <div class="mx-auto w-28 h-6 bg-black rounded-full flex items-center justify-between px-3 z-40">
+                                <div class="w-2.5 h-2.5 rounded-full bg-slate-900 border border-slate-700"></div>
+                                <div class="w-1.5 h-1.5 rounded-full bg-blue-900/80 animate-pulse"></div>
+                            </div>
+
+                            <!-- Screen Wallpaper Art & UI -->
+                            <div class="absolute inset-0 z-10 flex flex-col items-center justify-center p-6 text-center">
+                                <div class="w-full h-full rounded-3xl bg-gradient-to-br from-indigo-950 via-slate-900 to-cyan-950 p-6 flex flex-col justify-between border border-white/5">
+                                    <div class="space-y-1 text-left pt-6">
+                                        <p class="text-xs font-medium text-cyan-400 tracking-widest uppercase">AuraOS 18</p>
+                                        <h3 class="text-2xl font-bold font-display text-white">Quantum AMOLED</h3>
+                                        <p class="text-[11px] text-gray-400">4,500 Nits Peak Brightness</p>
+                                    </div>
+
+                                    <!-- Interactive Visualizer Widget -->
+                                    <div class="my-auto space-y-4">
+                                        <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-tr from-indigo-500 to-cyan-400 p-[2px] animate-pulse">
+                                            <div class="w-full h-full bg-slate-950 rounded-full flex items-center justify-center">
+                                                <i class="fa-solid fa-circle-nodes text-3xl text-cyan-300"></i>
+                                            </div>
+                                        </div>
+                                        <p class="text-xs text-indigo-300 font-mono">Aura AI Active</p>
+                                    </div>
+
+                                    <!-- Bottom Lockscreen Style Widget -->
+                                    <div class="glass-panel p-3 rounded-2xl flex items-center justify-between text-xs text-gray-300 border border-white/10">
+                                        <div class="flex items-center space-x-2">
+                                            <i class="fa-solid fa-shield-halved text-emerald-400"></i>
+                                            <span>BioMetric Ultra</span>
+                                        </div>
+                                        <span class="text-[10px] text-emerald-400 font-bold uppercase">Active</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Bottom Onscreen Bar -->
+                            <div class="w-32 h-1 bg-white/40 rounded-full mx-auto z-40 mb-1"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Color / Variant Swapper Section -->
+    <section id="colors" class="py-24 bg-slate-950/80 relative border-t border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-indigo-400">Forged in Space-Grade Titanium</h2>
+                <h3 class="text-3xl sm:text-5xl font-display font-extrabold text-white">Pick Your Metallic Finish.</h3>
+                <p class="text-gray-400 text-sm sm:text-base">Micro-blasted precision finish designed to withstand tough conditions while maintaining a ultra-smooth tactile feel.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Swapper Interactive Preview -->
+                <div class="lg:col-span-7 flex flex-col items-center justify-center relative min-h-[420px] glass-panel rounded-3xl p-8 border border-white/10">
+                    <div id="swapperBgGlow" class="absolute w-72 h-72 rounded-full blur-[100px] transition-all duration-700 bg-indigo-600/30"></div>
+
+                    <!-- Simulated Back Phone Body -->
+                    <div id="finishPhoneMockup" class="relative w-64 sm:w-72 h-[420px] rounded-[40px] border-[6px] border-slate-700/80 shadow-2xl transition-all duration-500 bg-slate-900 p-4 flex flex-col justify-between">
+                        
+                        <!-- Camera Module Housing -->
+                        <div class="w-36 h-36 rounded-3xl glass-panel p-3 grid grid-cols-2 gap-2 border border-white/20 shadow-xl bg-slate-950/60">
+                            <div class="w-full h-full rounded-full bg-slate-950 border border-slate-700 flex items-center justify-center relative shadow-inner">
+                                <div class="w-6 h-6 rounded-full bg-gradient-to-tr from-cyan-600 to-blue-900 border border-cyan-400/50"></div>
+                            </div>
+                            <div class="w-full h-full rounded-full bg-slate-950 border border-slate-700 flex items-center justify-center relative shadow-inner">
+                                <div class="w-6 h-6 rounded-full bg-gradient-to-tr from-cyan-600 to-blue-900 border border-cyan-400/50"></div>
+                            </div>
+                            <div class="w-full h-full rounded-full bg-slate-950 border border-slate-700 flex items-center justify-center relative shadow-inner">
+                                <div class="w-6 h-6 rounded-full bg-gradient-to-tr from-cyan-600 to-blue-900 border border-cyan-400/50"></div>
+                            </div>
+                            <div class="w-full h-full rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-center">
+                                <div class="w-3 h-3 rounded-full bg-amber-200 shadow-[0_0_10px_#fef08a]"></div>
+                            </div>
+                        </div>
+
+                        <!-- Brand Badge -->
+                        <div class="text-center pb-6">
+                            <i class="fa-solid fa-a text-2xl opacity-40"></i>
+                            <p id="finishBadgeName" class="text-[10px] font-mono uppercase tracking-widest text-gray-400 mt-2">Titanium Silver</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Selector Switches and Description -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div class="space-y-3">
+                        <span id="activeColorName" class="text-2xl font-bold font-display text-indigo-300">Titanium Silver</span>
+                        <p id="activeColorDesc" class="text-sm text-gray-400 leading-relaxed">
+                            Ultra-light aerospace titanium alloy with a satin micro-matte texture that repels fingerprints and scratches.
+                        </p>
+                    </div>
+
+                    <!-- Color Swatches Grid -->
+                    <div class="grid grid-cols-2 gap-4">
+                        
+                        <!-- Silver Option -->
+                        <button onclick="switchColor('silver')" id="btn-silver" class="color-option-btn p-4 rounded-2xl border-2 border-indigo-500 bg-white/5 flex items-center space-x-3 text-left transition-all">
+                            <span class="w-8 h-8 rounded-full bg-gradient-to-tr from-slate-300 to-slate-100 border border-white shadow-md"></span>
+                            <div>
+                                <p class="text-xs font-bold text-white">Titanium Silver</p>
+                                <p class="text-[10px] text-gray-400">Aerospace Matte</p>
+                            </div>
+                        </button>
+
+                        <!-- Obsidian Black Option -->
+                        <button onclick="switchColor('black')" id="btn-black" class="color-option-btn p-4 rounded-2xl border border-white/10 bg-white/5 flex items-center space-x-3 text-left hover:border-white/30 transition-all">
+                            <span class="w-8 h-8 rounded-full bg-gradient-to-tr from-slate-950 to-slate-800 border border-slate-700 shadow-md"></span>
+                            <div>
+                                <p class="text-xs font-bold text-white">Obsidian Black</p>
+                                <p class="text-[10px] text-gray-400">Deep Carbon</p>
+                            </div>
+                        </button>
+
+                        <!-- Emerald Green Option -->
+                        <button onclick="switchColor('emerald')" id="btn-emerald" class="color-option-btn p-4 rounded-2xl border border-white/10 bg-white/5 flex items-center space-x-3 text-left hover:border-white/30 transition-all">
+                            <span class="w-8 h-8 rounded-full bg-gradient-to-tr from-emerald-800 to-emerald-500 border border-emerald-400/30 shadow-md"></span>
+                            <div>
+                                <p class="text-xs font-bold text-white">Emerald Green</p>
+                                <p class="text-[10px] text-gray-400">Metallic Jade</p>
+                            </div>
+                        </button>
+
+                        <!-- Sunset Gold Option -->
+                        <button onclick="switchColor('gold')" id="btn-gold" class="color-option-btn p-4 rounded-2xl border border-white/10 bg-white/5 flex items-center space-x-3 text-left hover:border-white/30 transition-all">
+                            <span class="w-8 h-8 rounded-full bg-gradient-to-tr from-amber-700 to-amber-400 border border-amber-300/30 shadow-md"></span>
+                            <div>
+                                <p class="text-xs font-bold text-white">Sunset Gold</p>
+                                <p class="text-[10px] text-gray-400">Champagne Luxe</p>
+                            </div>
+                        </button>
+
+                    </div>
+
+                    <!-- Material Highlights list -->
+                    <div class="space-y-2 pt-4 border-t border-white/10 text-xs text-gray-300">
+                        <div class="flex items-center space-x-2">
+                            <i class="fa-solid fa-check text-indigo-400"></i>
+                            <span>40% lighter than standard stainless steel frames</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fa-solid fa-check text-indigo-400"></i>
+                            <span>IP68 Submersible water-resistance up to 6 meters</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Specs & Hardware Grid Section -->
+    <section id="specs" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-cyan-400">Unmatched Specs Architecture</h2>
+                <h3 class="text-3xl sm:text-5xl font-display font-extrabold text-white">Engineered Without Compromise.</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Card 1: Camera System -->
+                <div class="glass-card rounded-3xl p-6 flex flex-col justify-between space-y-6">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 text-xl">
+                            <i class="fa-solid fa-camera"></i>
+                        </div>
+                        <h4 class="text-xl font-bold font-display text-white">200MP Quad Photonic</h4>
+                        <p class="text-xs text-gray-400 leading-relaxed">
+                            Includes a periscope telephoto lens with 10x optical zoom and 100x Space Zoom powered by AI super-resolution.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-white/10 text-cyan-400 font-mono text-xs font-bold">
+                        f/1.4 Aperture • OIS 3.0
+                    </div>
+                </div>
+
+                <!-- Card 2: Snapdragon Engine -->
+                <div class="glass-card rounded-3xl p-6 flex flex-col justify-between space-y-6">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 text-xl">
+                            <i class="fa-solid fa-microchip"></i>
+                        </div>
+                        <h4 class="text-xl font-bold font-display text-white">Snapdragon 8 Gen 3</h4>
+                        <p class="text-xs text-gray-400 leading-relaxed">
+                            35% faster CPU performance with on-device generative AI capability processing up to 20 tokens/sec.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-white/10 text-indigo-400 font-mono text-xs font-bold">
+                        4nm Process • Adreno 750
+                    </div>
+                </div>
+
+                <!-- Card 3: Battery & Charging -->
+                <div class="glass-card rounded-3xl p-6 flex flex-col justify-between space-y-6">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 text-xl">
+                            <i class="fa-solid fa-bolt font-bold"></i>
+                        </div>
+                        <h4 class="text-xl font-bold font-display text-white">120W HyperCharge</h4>
+                        <p class="text-xs text-gray-400 leading-relaxed">
+                            Massive 5,500mAh silicon-anode battery giving up to 2.5 days of typical heavy usage on a single charge.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-white/10 text-emerald-400 font-mono text-xs font-bold">
+                        18 Min Full Charge • 50W Wireless
+                    </div>
+                </div>
+
+                <!-- Card 4: AI AuraOS Core -->
+                <div class="glass-card rounded-3xl p-6 flex flex-col justify-between space-y-6">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 text-xl">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+                        <h4 class="text-xl font-bold font-display text-white">Aura AI Assistant</h4>
+                        <p class="text-xs text-gray-400 leading-relaxed">
+                            Real-time voice translation, live photo object eraser, and proactive context scheduling integrated deeply into OS.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-white/10 text-amber-400 font-mono text-xs font-bold">
+                        Zero-Latency Privacy Vault
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Camera Feature Deep-Dive Tab Section -->
+    <section id="camera" class="py-24 bg-slate-950/90 relative border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between mb-12">
+                <div>
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-emerald-400">Pro Optics Engine</h2>
+                    <h3 class="text-3xl sm:text-4xl font-display font-extrabold text-white mt-1">Capture Beyond Vision</h3>
+                </div>
+                
+                <!-- Interactive Feature Toggles -->
+                <div class="flex items-center space-x-2 bg-slate-900 p-1.5 rounded-full border border-white/10 mt-6 md:mt-0">
+                    <button onclick="switchCameraMode('night')" id="tab-night" class="cam-tab-btn px-5 py-2 rounded-full text-xs font-semibold bg-indigo-600 text-white transition-all">
+                        <i class="fa-solid fa-moon mr-1.5"></i> NightVision 4.0
+                    </button>
+                    <button onclick="switchCameraMode('zoom')" id="tab-zoom" class="cam-tab-btn px-5 py-2 rounded-full text-xs font-semibold text-gray-400 hover:text-white transition-all">
+                        <i class="fa-solid fa-magnifying-glass-plus mr-1.5"></i> 100x UltraZoom
+                    </button>
+                    <button onclick="switchCameraMode('cinema')" id="tab-cinema" class="cam-tab-btn px-5 py-2 rounded-full text-xs font-semibold text-gray-400 hover:text-white transition-all">
+                        <i class="fa-solid fa-film mr-1.5"></i> 8K Cinematic
+                    </button>
+                </div>
+            </div>
+
+            <!-- Dynamic Camera Showcase Box -->
+            <div class="glass-panel rounded-3xl overflow-hidden border border-white/10 relative">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
+                    
+                    <!-- Feature Visual Container -->
+                    <div class="lg:col-span-8 relative min-h-[380px] sm:min-h-[480px] bg-slate-900 flex items-center justify-center overflow-hidden">
+                        <!-- Dynamic Background Visual Simulation -->
+                        <img id="camSampleImg" src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1200&q=80" alt="Camera Mode Sample" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+
+                        <!-- On-Image Live HUD Overlay -->
+                        <div class="absolute top-6 left-6 glass-panel px-4 py-2 rounded-xl border border-white/20 text-xs font-mono text-white flex items-center space-x-2">
+                            <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+                            <span id="camHudStatus">RAW ISO 12,800 • NightVision ACTIVE</span>
+                        </div>
+                    </div>
+
+                    <!-- Feature Info Column -->
+                    <div class="lg:col-span-4 p-8 flex flex-col justify-between space-y-6 bg-slate-950/80">
+                        <div class="space-y-4">
+                            <span id="camTagline" class="text-xs font-bold font-mono text-indigo-400 uppercase tracking-widest">Ultra Low-Light AI</span>
+                            <h4 id="camTitle" class="text-2xl font-bold font-display text-white">Turn Darkness into Daylight.</h4>
+                            <p id="camDesc" class="text-xs text-gray-400 leading-relaxed">
+                                Our multi-frame RAW stack processor combines 16 frames in under 0.1 seconds to erase noise while enhancing natural lighting details in low light environments.
+                            </p>
+                        </div>
+
+                        <div class="space-y-3 pt-6 border-t border-white/10">
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="text-gray-400">Sensor Size</span>
+                                <span class="text-white font-mono font-bold">1-inch Sony LYT-900</span>
+                            </div>
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="text-gray-400">Aperture Range</span>
+                                <span class="text-white font-mono font-bold">f/1.4 - f/4.0 Stepless</span>
+                            </div>
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="text-gray-400">Stabilization</span>
+                                <span class="text-white font-mono font-bold">Gimbal OIS (±3°)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Price & Storage Configurator Section -->
+    <section id="configure" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-indigo-400">Custom Storage & Edition</h2>
+                <h3 class="text-3xl sm:text-5xl font-display font-extrabold text-white">Configure Your Aura Pro.</h3>
+                <p class="text-gray-400 text-sm">Select storage options and networking connectivity to unlock immediate pre-order bonus bundles.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Left Configuration Options -->
+                <div class="lg:col-span-8 space-y-8 glass-panel p-6 sm:p-8 rounded-3xl border border-white/10">
+                    
+                    <!-- Storage Selection -->
+                    <div class="space-y-4">
+                        <label class="text-xs font-bold text-gray-300 uppercase tracking-wider flex items-center justify-between">
+                            <span>1. Select Storage Capacity</span>
+                            <span class="text-indigo-400 text-[10px] font-mono">UFS 4.0 High Speed</span>
+                        </label>
+
+                        <div class="grid grid-cols-3 gap-4">
+                            <button onclick="selectStorage(256, 999)" id="storage-256" class="storage-btn p-4 rounded-2xl border-2 border-indigo-500 bg-indigo-500/10 text-center transition-all">
+                                <p class="text-lg font-bold font-display text-white">256 GB</p>
+                                <p class="text-[11px] text-gray-400 mt-1">$999</p>
+                            </button>
+
+                            <button onclick="selectStorage(512, 1149)" id="storage-512" class="storage-btn p-4 rounded-2xl border border-white/10 bg-white/5 text-center hover:border-white/30 transition-all">
+                                <p class="text-lg font-bold font-display text-white">512 GB</p>
+                                <p class="text-[11px] text-gray-400 mt-1">$1,149</p>
+                            </button>
+
+                            <button onclick="selectStorage(1024, 1399)" id="storage-1024" class="storage-btn p-4 rounded-2xl border border-white/10 bg-white/5 text-center hover:border-white/30 transition-all">
+                                <p class="text-lg font-bold font-display text-white">1 TB</p>
+                                <p class="text-[11px] text-gray-400 mt-1">$1,399</p>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Network Connectivity -->
+                    <div class="space-y-4">
+                        <label class="text-xs font-bold text-gray-300 uppercase tracking-wider">2. Connectivity</label>
+
+                        <div class="grid grid-cols-2 gap-4">
+                            <button onclick="selectConnectivity('5g', 0)" id="conn-5g" class="conn-btn p-4 rounded-2xl border-2 border-indigo-500 bg-indigo-500/10 flex items-center space-x-3 text-left transition-all">
+                                <i class="fa-solid fa-wifi text-indigo-400 text-lg"></i>
+                                <div>
+                                    <p class="text-xs font-bold text-white">5G Sub-6GHz + Wi-Fi 7</p>
+                                    <p class="text-[10px] text-gray-400">Included standard</p>
+                                </div>
+                            </button>
+
+                            <button onclick="selectConnectivity('satellite', 100)" id="conn-satellite" class="conn-btn p-4 rounded-2xl border border-white/10 bg-white/5 flex items-center space-x-3 text-left hover:border-white/30 transition-all">
+                                <i class="fa-solid fa-satellite text-cyan-400 text-lg"></i>
+                                <div>
+                                    <p class="text-xs font-bold text-white">Global Satellite SOS</p>
+                                    <p class="text-[10px] text-gray-400">+$100 one-time</p>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Exclusive Launch Gift Perks -->
+                    <div class="space-y-3 pt-6 border-t border-white/10">
+                        <p class="text-xs font-bold text-gray-300 uppercase tracking-wider">Included Pre-Order Bonus Bundle ($240 Value)</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-gray-300">
+                            <div class="p-3 rounded-xl bg-white/5 flex items-center space-x-3 border border-white/5">
+                                <i class="fa-solid fa-headphones text-cyan-400"></i>
+                                <span>Free Aura Sound Pro Earbuds</span>
+                            </div>
+                            <div class="p-3 rounded-xl bg-white/5 flex items-center space-x-3 border border-white/5">
+                                <i class="fa-solid fa-shield-virus text-emerald-400"></i>
+                                <span>2 Years AuraCare Protect Plan</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right Live Price Summary Box -->
+                <div class="lg:col-span-4 glass-panel p-6 sm:p-8 rounded-3xl border border-white/10 space-y-6 sticky top-28">
+                    <h4 class="text-lg font-bold font-display text-white border-b border-white/10 pb-4">Order Summary</h4>
+                    
+                    <div class="space-y-3 text-xs text-gray-300">
+                        <div class="flex justify-between">
+                            <span>Aura Phone Pro (<span id="summaryStorage">256 GB</span>)</span>
+                            <span id="summaryBasePrice" class="font-mono font-bold">$999</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Connectivity Addon</span>
+                            <span id="summaryConnPrice" class="font-mono font-bold">$0</span>
+                        </div>
+                        <div class="flex justify-between text-emerald-400">
+                            <span>Pre-order Bonus Bundle</span>
+                            <span>FREE</span>
+                        </div>
+                        <div class="flex justify-between text-gray-400">
+                            <span>Estimated Shipping</span>
+                            <span>Express Free</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-white/10 flex items-baseline justify-between">
+                        <span class="text-xs uppercase font-bold text-gray-400">Total Today</span>
+                        <span id="totalPrice" class="text-3xl font-extrabold font-display text-gradient">$999</span>
+                    </div>
+
+                    <button onclick="openPreOrderDrawer()" class="w-full py-4 rounded-full bg-gradient-to-r from-indigo-500 via-cyan-500 to-emerald-400 font-bold text-slate-950 hover:shadow-lg hover:shadow-cyan-500/20 transition-all">
+                        Reserve Pre-Order Spot
+                    </button>
+
+                    <p class="text-[10px] text-gray-400 text-center">
+                        No immediate charge until item ships. Cancel anytime before delivery.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews and Press Endorsements Section -->
+    <section class="py-20 bg-slate-950/80 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Press Logo Badges -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-center opacity-60 mb-16 grayscale hover:grayscale-0 transition-all">
+                <div class="text-center font-display font-bold text-xl tracking-tighter text-gray-300">TECHRADAR</div>
+                <div class="text-center font-display font-bold text-xl tracking-wider text-gray-300">THE VERGE</div>
+                <div class="text-center font-display font-bold text-xl tracking-widest text-gray-300">WIRED</div>
+                <div class="text-center font-display font-bold text-xl tracking-tight text-gray-300">GIZMODO</div>
+            </div>
+
+            <!-- Testimonial Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <div class="glass-card rounded-2xl p-6 space-y-4">
+                    <div class="flex text-amber-400 text-xs space-x-1">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-xs text-gray-300 italic">
+                        "The 200MP camera speed and low-light performance completely blows away every other flagship available this year."
+                    </p>
+                    <div class="pt-2 flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full bg-indigo-500/20 border border-indigo-400/30 flex items-center justify-center text-xs font-bold text-indigo-300">TR</div>
+                        <div>
+                            <p class="text-xs font-bold text-white">TechRadar Review</p>
+                            <p class="text-[10px] text-gray-400">Editor's Choice Award</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 space-y-4">
+                    <div class="flex text-amber-400 text-xs space-x-1">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-xs text-gray-300 italic">
+                        "Titanium ergonomics paired with 120W charging makes battery anxiety a distant memory."
+                    </p>
+                    <div class="pt-2 flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full bg-cyan-500/20 border border-cyan-400/30 flex items-center justify-center text-xs font-bold text-cyan-300">VG</div>
+                        <div>
+                            <p class="text-xs font-bold text-white">The Verge</p>
+                            <p class="text-[10px] text-gray-400">Score: 9.8 / 10</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 space-y-4">
+                    <div class="flex text-amber-400 text-xs space-x-1">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-xs text-gray-300 italic">
+                        "AuraOS zero-latency generative AI integration is the benchmark all smartphones must aim for."
+                    </p>
+                    <div class="pt-2 flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-400/30 flex items-center justify-center text-xs font-bold text-emerald-300">WD</div>
+                        <div>
+                            <p class="text-xs font-bold text-white">Wired Magazine</p>
+                            <p class="text-[10px] text-gray-400">Best Smart Device 2026</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-slate-950 border-t border-white/10 pt-12 pb-24 lg:pb-12 text-xs text-gray-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <h5 class="text-white font-bold mb-3">Aura Phone Pro</h5>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white">Overview</a></li>
+                        <li><a href="#" class="hover:text-white">Tech Specs</a></li>
+                        <li><a href="#" class="hover:text-white">AuraOS System</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-white font-bold mb-3">Pre-Order Support</h5>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white">Trade-In Estimator</a></li>
+                        <li><a href="#" class="hover:text-white">Shipping FAQ</a></li>
+                        <li><a href="#" class="hover:text-white">AuraCare Coverage</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-white font-bold mb-3">Company</h5>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white">Press Room</a></li>
+                        <li><a href="#" class="hover:text-white">Sustainability</a></li>
+                        <li><a href="#" class="hover:text-white">Careers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-white font-bold mb-3">Legal</h5>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white">Terms of Sale</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p>&copy; 2026 Aura Mobile Technologies Inc. All rights reserved.</p>
+                <div class="flex space-x-4 text-base">
+                    <a href="#" class="hover:text-cyan-400"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" class="hover:text-cyan-400"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#" class="hover:text-cyan-400"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Sticky Bottom Bar Mobile/Desktop Floating Pre-Order Bar -->
+    <div class="fixed bottom-0 left-0 right-0 z-40 glass-panel border-t border-white/10 py-3 px-4 sm:px-8 flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <div>
+                <p class="text-xs font-bold text-white">Aura Phone Pro</p>
+                <p class="text-[10px] text-gray-400 hidden sm:block">Pre-orders open now • Free Express Shipping</p>
+            </div>
+        </div>
+        <div class="flex items-center space-x-4">
+            <div class="text-right hidden sm:block">
+                <span class="text-[10px] text-gray-400 uppercase">Starting at</span>
+                <p class="text-sm font-bold font-mono text-cyan-400">$999</p>
+            </div>
+            <button onclick="openPreOrderDrawer()" class="px-6 py-2.5 rounded-full bg-gradient-to-r from-indigo-500 to-cyan-400 text-slate-950 font-bold text-xs shadow-lg shadow-cyan-500/20 hover:scale-105 transition-all">
+                Pre-Order
+            </button>
+        </div>
+    </div>
+
+    <!-- Slide-over Pre-Order Drawer Overlay -->
+    <div id="drawerOverlay" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div id="drawerContent" class="fixed top-0 right-0 bottom-0 w-full max-w-md bg-slate-950 border-l border-white/10 p-6 flex flex-col justify-between transform translate-x-full transition-transform duration-300 ease-in-out">
+            
+            <div>
+                <div class="flex items-center justify-between pb-4 border-b border-white/10">
+                    <h3 class="text-lg font-bold font-display text-white">Complete Pre-Order</h3>
+                    <button onclick="closePreOrderDrawer()" class="text-gray-400 hover:text-white p-2">
+                        <i class="fa-solid fa-xmark text-xl"></i>
+                    </button>
+                </div>
+
+                <!-- Form Fields -->
+                <form id="preOrderForm" onsubmit="handlePreOrderSubmit(event)" class="mt-6 space-y-4">
+                    <div>
+                        <label class="block text-xs text-gray-400 mb-1">Full Name</label>
+                        <input type="text" required placeholder="Alex Mercer" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-white/10 text-white text-xs focus:outline-none focus:border-indigo-500">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs text-gray-400 mb-1">Email Address</label>
+                        <input type="email" required placeholder="alex@example.com" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-white/10 text-white text-xs focus:outline-none focus:border-indigo-500">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs text-gray-400 mb-1">Selected Configuration</label>
+                        <div class="p-3 rounded-xl bg-slate-900 border border-white/10 text-xs text-gray-300 space-y-1">
+                            <p class="font-bold text-white">Aura Phone Pro - <span id="drawerColor">Titanium Silver</span></p>
+                            <p id="drawerSpecs">256GB • 5G Connectivity</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs text-gray-400 mb-1">Shipping Address</label>
+                        <textarea required rows="2" placeholder="Street address, City, Zip Code" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-white/10 text-white text-xs focus:outline-none focus:border-indigo-500"></textarea>
+                    </div>
+
+                    <div class="pt-2">
+                        <button type="submit" class="w-full py-4 rounded-full bg-gradient-to-r from-indigo-500 via-cyan-500 to-emerald-400 font-bold text-slate-950 text-xs uppercase tracking-wider hover:shadow-lg hover:shadow-cyan-500/20 transition-all">
+                            Confirm Pre-Order (<span id="drawerTotal">$999</span>)
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="pt-4 border-t border-white/10 text-center text-[10px] text-gray-500">
+                <i class="fa-solid fa-lock text-emerald-400 mr-1"></i> 256-Bit SSL Encrypted Reservation
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="relative w-full max-w-4xl glass-panel rounded-3xl overflow-hidden p-2 border border-white/10">
+            <button onclick="closeVideoModal()" class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-slate-900/80 text-white flex items-center justify-center hover:bg-white/20">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="aspect-video w-full rounded-2xl bg-slate-950 flex flex-col items-center justify-center space-y-4 p-8 text-center">
+                <i class="fa-solid fa-circle-play text-6xl text-indigo-400 animate-pulse"></i>
+                <h3 class="text-xl font-bold font-display text-white">Aura Keynote Launch Event</h3>
+                <p class="text-xs text-gray-400 max-w-md">Simulated keynote preview player demonstrating Aura OS 18 and Photonic optics.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive Logic JavaScript -->
+    <script>
+        // State variables
+        let selectedStorage = 256;
+        let selectedBasePrice = 999;
+        let selectedConnPrice = 0;
+        let selectedColor = 'Titanium Silver';
+
+        // Color finishes data mapping
+        const finishes = {
+            silver: {
+                name: 'Titanium Silver',
+                desc: 'Ultra-light aerospace titanium alloy with a satin micro-matte texture that repels fingerprints and scratches.',
+                glow: 'rgba(99, 102, 241, 0.4)',
+                border: '#6366f1'
+            },
+            black: {
+                name: 'Obsidian Black',
+                desc: 'Deep carbon nano-coated finish providing enhanced grip and extreme scratch resilience.',
+                glow: 'rgba(51, 65, 85, 0.6)',
+                border: '#475569'
+            },
+            emerald: {
+                name: 'Emerald Green',
+                desc: 'Inspired by deep emerald crystal structures with subtle metallic sheen reflections.',
+                glow: 'rgba(16, 185, 129, 0.4)',
+                border: '#10b981'
+            },
+            gold: {
+                name: 'Sunset Gold',
+                desc: 'Warm champagne titanium finish engineered with dual-layer anodized protection.',
+                glow: 'rgba(245, 158, 11, 0.4)',
+                border: '#f59e0b'
+            }
+        };
+
+        // Camera Modes Data
+        const cameraModes = {
+            night: {
+                tagline: 'Ultra Low-Light AI',
+                title: 'Turn Darkness into Daylight.',
+                desc: 'Our multi-frame RAW stack processor combines 16 frames in under 0.1 seconds to erase noise while enhancing natural lighting details in low light environments.',
+                hud: 'RAW ISO 12,800 • NightVision ACTIVE',
+                img: 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1200&q=80'
+            },
+            zoom: {
+                tagline: 'Periscope Telephoto',
+                title: '100x Clarity From Miles Away.',
+                desc: 'Dual-stage optical stabilization combined with AI resolution reconstruction keeps extreme distance shots crisp and crystal clear.',
+                hud: 'OPTICAL ZOOM 10X • AI SUPER-RES 100X',
+                img: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=80'
+            },
+            cinema: {
+                tagline: '8K HDR Photonic Video',
+                title: 'Hollywood Depth in Your Pocket.',
+                desc: 'Record in 10-bit Dolby Vision HDR with dynamic real-time focus tracking and cinematic background bokehblur.',
+                hud: '8K 60FPS • LOG COLOR • DOLBY VISION',
+                img: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=80'
+            }
+        };
+
+        // Color Swapper Handler
+        function switchColor(key) {
+            const finish = finishes[key];
+            if (!finish) return;
+
+            selectedColor = finish.name;
+
+            // Update UI Labels
+            document.getElementById('activeColorName').innerText = finish.name;
+            document.getElementById('activeColorDesc').innerText = finish.desc;
+            document.getElementById('finishBadgeName').innerText = finish.name;
+
+            // Update Swapper Glow Element
+            const glowEl = document.getElementById('swapperBgGlow');
+            glowEl.style.backgroundColor = finish.glow;
+
+            // Update Hero Phone Glow
+            const heroGlow = document.getElementById('phoneGlow');
+            heroGlow.style.boxShadow = `0 0 50px ${finish.glow}`;
+            heroGlow.style.borderColor = finish.border;
+
+            // Toggle Button active state styles
+            document.querySelectorAll('.color-option-btn').forEach(btn => {
+                btn.classList.remove('border-indigo-500', 'border-2');
+                btn.classList.add('border-white/10');
+            });
+            const activeBtn = document.getElementById(`btn-${key}`);
+            if (activeBtn) {
+                activeBtn.classList.remove('border-white/10');
+                activeBtn.classList.add('border-indigo-500', 'border-2');
+            }
+        }
+
+        // Camera Feature Switcher Handler
+        function switchCameraMode(modeKey) {
+            const mode = cameraModes[modeKey];
+            if (!mode) return;
+
+            // Update Text Content
+            document.getElementById('camTagline').innerText = mode.tagline;
+            document.getElementById('camTitle').innerText = mode.title;
+            document.getElementById('camDesc').innerText = mode.desc;
+            document.getElementById('camHudStatus').innerText = mode.hud;
+
+            // Update Image with Fade Transition
+            const imgEl = document.getElementById('camSampleImg');
+            imgEl.style.opacity = '0';
+            setTimeout(() => {
+                imgEl.src = mode.img;
+                imgEl.style.opacity = '1';
+            }, 200);
+
+            // Button Active States
+            document.querySelectorAll('.cam-tab-btn').forEach(btn => {
+                btn.classList.remove('bg-indigo-600', 'text-white');
+                btn.classList.add('text-gray-400');
+            });
+
+            const activeTab = document.getElementById(`tab-${modeKey}`);
+            if (activeTab) {
+                activeTab.classList.remove('text-gray-400');
+                activeTab.classList.add('bg-indigo-600', 'text-white');
+            }
+        }
+
+        // Storage Selection Handler
+        function selectStorage(gb, price) {
+            selectedStorage = gb;
+            selectedBasePrice = price;
+
+            document.querySelectorAll('.storage-btn').forEach(btn => {
+                btn.classList.remove('border-2', 'border-indigo-500', 'bg-indigo-500/10');
+                btn.classList.add('border-white/10', 'bg-white/5');
+            });
+
+            const activeBtn = document.getElementById(`storage-${gb}`);
+            if (activeBtn) {
+                activeBtn.classList.remove('border-white/10', 'bg-white/5');
+                activeBtn.classList.add('border-2', 'border-indigo-500', 'bg-indigo-500/10');
+            }
+
+            updatePriceSummary();
+        }
+
+        // Connectivity Selection Handler
+        function selectConnectivity(type, addonPrice) {
+            selectedConnPrice = addonPrice;
+
+            document.querySelectorAll('.conn-btn').forEach(btn => {
+                btn.classList.remove('border-2', 'border-indigo-500', 'bg-indigo-500/10');
+                btn.classList.add('border-white/10', 'bg-white/5');
+            });
+
+            const activeBtn = document.getElementById(`conn-${type}`);
+            if (activeBtn) {
+                activeBtn.classList.remove('border-white/10', 'bg-white/5');
+                activeBtn.classList.add('border-2', 'border-indigo-500', 'bg-indigo-500/10');
+            }
+
+            updatePriceSummary();
+        }
+
+        // Recalculate and update summary widget
+        function updatePriceSummary() {
+            const total = selectedBasePrice + selectedConnPrice;
+
+            document.getElementById('summaryStorage').innerText = selectedStorage >= 1024 ? '1 TB' : `${selectedStorage} GB`;
+            document.getElementById('summaryBasePrice').innerText = `$${selectedBasePrice}`;
+            document.getElementById('summaryConnPrice').innerText = `$${selectedConnPrice}`;
+            document.getElementById('totalPrice').innerText = `$${total}`;
+        }
+
+        // Scroll Helper
+        function scrollToConfigure() {
+            document.getElementById('configure').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Pre-Order Modal Drawer Handlers
+        function openPreOrderDrawer() {
+            const overlay = document.getElementById('drawerOverlay');
+            const drawer = document.getElementById('drawerContent');
+
+            // Populate current configured specs in form
+            const total = selectedBasePrice + selectedConnPrice;
+            document.getElementById('drawerColor').innerText = selectedColor;
+            document.getElementById('drawerSpecs').innerText = `${selectedStorage >= 1024 ? '1 TB' : selectedStorage + 'GB'} Storage • ${selectedConnPrice > 0 ? '5G + Global Satellite' : '5G Sub-6GHz'}`;
+            document.getElementById('drawerTotal').innerText = `$${total}`;
+
+            overlay.classList.remove('opacity-0', 'pointer-events-none');
+            drawer.classList.remove('translate-x-full');
+        }
+
+        function closePreOrderDrawer() {
+            const overlay = document.getElementById('drawerOverlay');
+            const drawer = document.getElementById('drawerContent');
+
+            drawer.classList.add('translate-x-full');
+            setTimeout(() => {
+                overlay.classList.add('opacity-0', 'pointer-events-none');
+            }, 200);
+        }
+
+        function handlePreOrderSubmit(e) {
+            e.preventDefault();
+            alert('🎉 Thank you for pre-ordering the Aura Phone Pro! A confirmation details email with shipping tracking has been dispatched.');
+            closePreOrderDrawer();
+        }
+
+        // Video Keynote Modal
+        function openVideoModal() {
+            const modal = document.getElementById('videoModal');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+        }
+
+        function closeVideoModal() {
+            const modal = document.getElementById('videoModal');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+        }
+    </script>
+</body>
+</html>
