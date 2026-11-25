@@ -20,3 +20,11 @@
    - start with capital letter
    - it must return html 
    - must be close at the calling time `</>`
+
+## React component
+- any web app is built by different components
+- it is special type of js function that must return  html content/s
+- it may call user defined html tags 
+- it must be called inside angle <> 
+- must be closed </>
+- the first char must be capital letter 

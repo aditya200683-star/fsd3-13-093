@@ -1,0 +1,15 @@
+{
+  "name": "online-food-order-management",
+  "version": "1.0.0",
+  "description": "Online Food Order Management - Node.js HTTP and Express REST API lab project",
+  "type": "module",
+  "main": "expressApp.js",
+  "scripts": {
+    "start:http": "node httpServer.js",
+    "start:api": "node expressApp.js",
+    "start": "node expressApp.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

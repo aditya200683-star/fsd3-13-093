@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Task Management</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f6fb;
+            color: #333;
+        }
+
+        header {
+            background: #202b46;
+            color: white;
+            padding: 20px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h2 {
+            font-size: 24px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #66d9ef;
+        }
+
+        .container {
+            width: 86%;
+            margin: 35px auto;
+        }
+
+        .welcome {
+            margin-bottom: 30px;
+        }
+
+        .welcome h1 {
+            color: #202b46;
+            margin-bottom: 10px;
+        }
+
+        .welcome p {
+            color: #777;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 35px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+        }
+
+        .card h3 {
+            color: #777;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .card h1 {
+            color: #202b46;
+            font-size: 30px;
+        }
+
+        .section-title {
+            margin-bottom: 20px;
+            color: #202b46;
+        }
+
+        .task-table {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+
+        th, td {
+            padding: 16px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background: #f5f7fc;
+            color: #202b46;
+        }
+
+        .status {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+
+        .pending {
+            background: #fff0d5;
+            color: #d18a00;
+        }
+
+        .completed {
+            background: #d9f7e5;
+            color: #16834a;
+        }
+
+        .progress {
+            background: #dceaff;
+            color: #2765bb;
+        }
+
+        .add-section {
+            background: white;
+            padding: 25px;
+            margin-top: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        input, select {
+            padding: 13px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            width: 100%;
+            outline: none;
+        }
+
+        button {
+            padding: 13px;
+            background: #202b46;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        button:hover {
+            background: #35476e;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            margin-top: 40px;
+            background: #202b46;
+            color: white;
+        }
+
+        @media(max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 8px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            form {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                width: 92%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h2>Employee Management</h2>
+
+        <nav>
+            <a href="/">Home</a>
+            <a href="#tasks">Tasks</a>
+            <a href="#add-task">Add Task</a>
+        </nav>
+    </header>
+
+    <div class="container">
+
+        <section class="welcome">
+            <h1>Employee Task Dashboard</h1>
+            <p>Manage employee tasks and monitor work progress.</p>
+        </section>
+
+        <!-- Dashboard Cards -->
+
+        <section class="cards">
+
+            <div class="card">
+                <h3>Total Tasks</h3>
+                <h1 id="totalTasks">0</h1>
+            </div>
+
+            <div class="card">
+                <h3>Completed Tasks</h3>
+                <h1 id="completedTasks">0</h1>
+            </div>
+
+            <div class="card">
+                <h3>Pending Tasks</h3>
+                <h1 id="pendingTasks">0</h1>
+            </div>
+
+        </section>
+
+        <!-- Task List -->
+
+        <section id="tasks">
+
+            <h2 class="section-title">Employee Tasks</h2>
+
+            <div class="task-table">
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Task Name</th>
+                            <th>Assigned To</th>
+                            <th>Status</th>
+                            <th>Priority</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="taskList">
+                        <tr>
+                            <td colspan="5">Loading tasks...</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+        <!-- Add Task Form -->
+
+        <section class="add-section" id="add-task">
+
+            <h2 class="section-title">Add New Task</h2>
+
+            <form id="taskForm">
+
+                <input type="number" id="id" placeholder="Task ID" required>
+
+                <input type="text" id="taskName" placeholder="Task Name" required>
+
+                <input type="text" id="assignedTo" placeholder="Employee Name" required>
+
+                <select id="status" required>
+                    <option value="">Select Status</option>
+                    <option value="Pending">Pending</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Completed">Completed</option>
+                </select>
+
+                <select id="priority" required>
+                    <option value="">Select Priority</option>
+                    <option value="High">High</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Low">Low</option>
+                </select>
+
+                <button type="submit">Add Task</button>
+
+            </form>
+
+        </section>
+
+    </div>
+
+    <footer>
+        <p>© 2026 Employee Task Management System | All Rights Reserved</p>
+    </footer>
+
+    <script>
+
+        const API = "http://localhost:4000/tasks";
+
+        // Display all tasks
+        async function loadTasks() {
+
+            try {
+                const response = await fetch(API);
+                const tasks = await response.json();
+
+                const list = document.getElementById("taskList");
+
+                list.innerHTML = "";
+
+                tasks.forEach(task => {
+
+                    let cls = "pending";
+
+                    if (task.status === "Completed") {
+                        cls = "completed";
+                    }
+                    else if (task.status === "In Progress") {
+                        cls = "progress";
+                    }
+
+                    list.innerHTML += `
+                        <tr>
+                            <td>${task.id}</td>
+                            <td>${task.taskName}</td>
+                            <td>${task.assignedTo}</td>
+                            <td><span class="status ${cls}">${task.status}</span></td>
+                            <td>${task.priority || "-"}</td>
+                        </tr>
+                    `;
+
+                });
+
+                // Dashboard calculations
+                document.getElementById("totalTasks").innerText = tasks.length;
+
+                document.getElementById("completedTasks").innerText =
+                    tasks.filter(t => t.status === "Completed").length;
+
+                document.getElementById("pendingTasks").innerText =
+                    tasks.filter(t => t.status === "Pending").length;
+
+                if (tasks.length === 0) {
+                    list.innerHTML = `
+                        <tr><td colspan="5">No tasks available</td></tr>
+                    `;
+                }
+
+            }
+            catch (error) {
+                document.getElementById("taskList").innerHTML =
+                    `<tr><td colspan="5">Unable to connect to Express server. Start port 4000.</td></tr>`;
+            }
+        }
+
+        // Add new task
+        document.getElementById("taskForm").addEventListener("submit", async function(e) {
+
+            e.preventDefault();
+
+            const task = {
+                id: Number(document.getElementById("id").value),
+                taskName: document.getElementById("taskName").value,
+                assignedTo: document.getElementById("assignedTo").value,
+                status: document.getElementById("status").value,
+                priority: document.getElementById("priority").value
+            };
+
+            try {
+
+                const response = await fetch(API, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(task)
+                });
+
+                const result = await response.json();
+
+                if (!response.ok) {
+                    alert(result.message);
+                    return;
+                }
+
+                alert("Task added successfully!");
+
+                document.getElementById("taskForm").reset();
+
+                loadTasks();
+
+            }
+            catch (error) {
+                alert("Server connection failed!");
+            }
+
+        });
+
+        // Load tasks when page opens
+        loadTasks();
+
+    </script>
+
+</body>
+</html>
